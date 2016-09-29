@@ -3,4 +3,5 @@ import pandas as pd
 
 
 
-def bets_get(code)
+def bets_get(code):
+    return code
