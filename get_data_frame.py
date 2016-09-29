@@ -28,7 +28,7 @@ def get_data_frame(code, ts=None):
         elif freq == "D":
             database = "ts_diarias"
 
-        query = "select data, value from " + database + " where serie like " + "\'" + code + "\'"
+        query = "select data, valor from " + database + " where serie like " + "\'" + code + "\'"
         series = sql.Query(query)
 
         if len(result) == 0:
@@ -36,4 +36,12 @@ def get_data_frame(code, ts=None):
             #return msg(.MSG_NOT_AVAILABLE)
 
 
+    else:
         dateparse = lambda dates: pd.datetime.strptime(dates, '%Y-%m')
+        t = pd.read_csv(ts, parse_dates='', index_col='', date_parser=dateparse)
+        y = pd.DataFrame(ts)
+        series = pd.DataFrame(t,y)
+
+    series.columns['dates', abbr]
+
+    return series

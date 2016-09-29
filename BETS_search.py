@@ -1,6 +1,6 @@
 import re as re
 
-bacen_final_ptv1 = 10
+base_final_ptv1 = 10
 bacen_v7 = 5
 
 def bets_search(start, description=None, src=None, periodicity=None, unit=None, code=None, view=True, lang="en"):
