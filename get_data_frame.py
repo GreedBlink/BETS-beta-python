@@ -2,6 +2,7 @@ from stemming.porter2 import stem
 import sql as sql
 from sql.aggregate import *
 from sql.conditionals import *
+import pandas as pd
 
 
 def get_data_frame(code, ts=None):
@@ -32,6 +33,7 @@ def get_data_frame(code, ts=None):
 
         if len(result) == 0:
             # TODO implement msg() function
-            return msg(.MSG_NOT_AVAILABLE)
+            #return msg(.MSG_NOT_AVAILABLE)
 
 
+        dateparse = lambda dates: pd.datetime.strptime(dates, '%Y-%m')
