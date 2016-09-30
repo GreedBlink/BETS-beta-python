@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="18799ce1-72c3-4572-83f0-8819927adfad" name="Default" comment="" />
+    <list default="true" id="18799ce1-72c3-4572-83f0-8819927adfad" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="BETS-beta-python.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -46,8 +48,8 @@
       <file leaf-file-name="get_data_frame.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/get_data_frame.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="51" selection-start-line="13" selection-start-column="51" selection-end-line="13" selection-end-column="51" />
+            <state relative-caret-position="170">
+              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
@@ -95,10 +97,10 @@
         <option value="$PROJECT_DIR$/BETS-beta-python/BETS_get.py" />
         <option value="$PROJECT_DIR$/BETS-beta-python/get_data_frame.py" />
         <option value="$PROJECT_DIR$/BETS_get.py" />
-        <option value="$PROJECT_DIR$/get_data_frame.py" />
         <option value="$PROJECT_DIR$/BETS_search.py" />
         <option value="$PROJECT_DIR$/teste.py" />
         <option value="$USER_HOME$/Desktop/Introducao_v2.ipynb" />
+        <option value="$PROJECT_DIR$/get_data_frame.py" />
       </list>
     </option>
   </component>
@@ -593,8 +595,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/get_data_frame.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="51" selection-start-line="13" selection-start-column="51" selection-end-line="13" selection-end-column="51" />
+        <state relative-caret-position="170">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
           </folding>
