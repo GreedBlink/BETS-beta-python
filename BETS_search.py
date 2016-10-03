@@ -1,15 +1,21 @@
 import re as re
+import pandas as pd
+import os
 
-base_final_ptv1 = 10
-bacen_v7 = 5
+
 
 def bets_search(start, description=None, src=None, periodicity=None, unit=None, code=None, view=True, lang="en"):
 
+    filelist = os.listdir("C:/Users/fernando.teixeira/PycharmProjects/BETS-beta-python/data")
+    os.chdir("C:/Users/fernando.teixeira/PycharmProjects/BETS-beta-python/data")
+    # read them into pandas
+    df_list = [pd.read_table(file, sep=',', index_col=0) for file in filelist]
+
     if lang == "pt":
-        database = base_final_ptv1
+        database = df_list[3]
 
     else:
-        database = bacen_v7
+        database = df_list[1]
 
     if description == None and src == None and periodicity == None and unit == None and code == None:
         print("No search parameters. Please set the values of one or more parameters.")
