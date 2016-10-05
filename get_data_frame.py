@@ -3,6 +3,7 @@ import sql as sql
 from sql.aggregate import *
 from sql.conditionals import *
 import pandas as pd
+from msg import msg
 from BETS_search import bets_search
 
 
@@ -34,8 +35,7 @@ def get_data_frame(code, ts=None):
         series = sql.Query(query)
 
         if len(result) == 0:
-            # TODO implement msg() function
-            #return msg(.MSG_NOT_AVAILABLE)
+            return msg.msg()
     else:
         dateparse = lambda dates: pd.datetime.strptime(dates, '%Y-%m')
         t = pd.read_csv(ts, parse_dates='', index_col='', date_parser=dateparse)
