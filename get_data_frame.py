@@ -12,7 +12,7 @@ def get_data_frame(code, ts=None):
 
     abbr = "values"
 
-    if ts == None:
+    if ts is None:
 
         result = bets_search(code=code, view=False)
 

@@ -17,7 +17,7 @@ def bets_search(start, description=None, src=None, periodicity=None, unit=None, 
     else:
         database = df_list[1]
 
-    if description == None and src == None and periodicity == None and unit == None and code == None:
+    if description is None and src is None and periodicity is None and unit is None and code is None:
         print("No search parameters. Please set the values of one or more parameters.")
 
     params = []
