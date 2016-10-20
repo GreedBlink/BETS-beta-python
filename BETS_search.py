@@ -1,6 +1,7 @@
 import re as re
 import pandas as pd
 import os
+from msg import msg
 
 
 
@@ -9,7 +10,8 @@ def bets_search(start, description=None, src=None, periodicity=None, unit=None, 
     filelist = os.listdir("C:/Users/fernando.teixeira/PycharmProjects/BETS-beta-python/data")
     os.chdir("C:/Users/fernando.teixeira/PycharmProjects/BETS-beta-python/data")
     # read them into pandas
-    df_list = [pd.read_table(file, sep=',', index_col=0) for file in filelist]
+
+    df_list = [pd.read_table(file, sep=',', index_col=0, low_memory=False) for file in filelist]
 
     if lang == "pt":
         database = df_list[3]
@@ -18,7 +20,7 @@ def bets_search(start, description=None, src=None, periodicity=None, unit=None, 
         database = df_list[1]
 
     if description is None and src is None and periodicity is None and unit is None and code is None:
-        print("No search parameters. Please set the values of one or more parameters.")
+        print(msg("No search parameters. Please set the values of one or more parameters."))
 
     params = []
 
