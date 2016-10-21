@@ -34,7 +34,9 @@ def bets_search(start, description=None, src=None, periodicity=None, unit=None, 
         description = ' '.join([description])
 
         # TODO regex
-        exprs = ["regex", "regex2"]
+        # Do not match whole expressions
+        exprs = re.match("~ ?'(.*?)'", description)
+
 
         if len(exprs) != 0:
 
