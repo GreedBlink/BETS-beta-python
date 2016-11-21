@@ -5,7 +5,7 @@ from msg import msg
 
 
 
-def bets_search(start, description=None, src=None, periodicity=None, unit=None, code=None, view=True, lang="en"):
+def bets_search(description=None, src=None, periodicity=None, unit=None, code=None, view=True, lang="en"):
 
     filelist = os.listdir("C:/Users/fernando.teixeira/PycharmProjects/BETS-beta-python/data")
     os.chdir("C:/Users/fernando.teixeira/PycharmProjects/BETS-beta-python/data")
@@ -18,6 +18,7 @@ def bets_search(start, description=None, src=None, periodicity=None, unit=None, 
 
     else:
         database = df_list[1]
+
 
     if description is None and src is None and periodicity is None and unit is None and code is None:
         print(msg("No search parameters. Please set the values of one or more parameters."))
@@ -35,9 +36,9 @@ def bets_search(start, description=None, src=None, periodicity=None, unit=None, 
 
         # TODO regex
         # Do not match whole expressions
-        exprs = re.match("~ ?'(.*?)'", description)
+  #      exprs = re.match("~ ?'(.*?)'", description)
 
-
+'''
         if len(exprs) != 0:
 
             for i in range(len(exprs)):
@@ -60,6 +61,8 @@ def bets_search(start, description=None, src=None, periodicity=None, unit=None, 
 
     # Do not match words
     words = description.str.extract("~ ?(.*?) ", expand=True)[0]
+'''
 
+#bets_search(start=10, description="teste")
 
-bets_search(start=10, description="teste")
+print(bets_search(description='unemployment', view=False))
