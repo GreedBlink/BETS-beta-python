@@ -35,7 +35,7 @@ def get_data_frame(code, ts=None):
         series = sql.Query(query)
 
         if len(result) == 0:
-            return msg.msg()
+            return msg()
     else:
         dateparse = lambda dates: pd.datetime.strptime(dates, '%Y-%m')
         t = pd.read_csv(ts, parse_dates='', index_col='', date_parser=dateparse)
