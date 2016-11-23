@@ -1,7 +1,7 @@
 import pandas as pd
 import get_data_frame
 import os
-from pandasql import sqldf
+from pandasql import PandaSQL
 from msg import msg
 
 def bets_get(code, data_frame=False):
@@ -11,16 +11,13 @@ def bets_get(code, data_frame=False):
 
     df = pd.read_table('bacen_v7.csv', sep=',', index_col=0, low_memory=False)
 
-
-    if data_frame != False:
-        return get_data_frame(code)
-
-    data = df
     code = str(code)
-    query = "SELECT Periodicity FROM data WHERE Codes LIKE" + "\'" + code + "\'"
+#    df['Periodicity']
+    pdsql = PandaSQL()
+    query = "SELECT Periodicity FROM df WHERE Codes LIKE" + "\'" + code + "\'" + ";"
 
-    freq = str(sqldf(query)[0,0])
-    freq = freq.strip()
+    freq = pdsql(query).iloc[0]
+    freq = freq[0].strip()
 
     if freq == None:
         return msg("There is no corresponding entry in the metadata table.")
@@ -49,23 +46,27 @@ def bets_get(code, data_frame=False):
         freq = 365
 
     else:
-        return msg("Malformed metadata. The value" + freq + "is not valid for 'periodicity'")
+        return msg("Malformed metadata. The value" + freq + "is not valid for 'Periodicity'")
 
-    query = "select data, valor from " + database + " where serie like " + "\'" + code + "\'"
-    aux = sqldf(query)
+    database2 = database + ".csv"
+    outros = pd.read_table(database2, sep=',', index_col=0, low_memory=False)
 
-    if len(aux[0,:]) == 0:
-        return msg("Series is empty in database" + database)
+
+    query = "SELECT data, valor FROM outros WHERE serie LIKE" + "\'" + code + "\'" + ";"
+    aux = pdsql(query)
+
+    if len(aux.iloc[0,:]) == 0:
+        return msg("Series is empty in database" + outros)
 
     aux = aux.dropna()
 
-    if aux[:,1].dtype == "category":
-        aux[:,1] = aux[:,1].astype('float64')
+    if aux.iloc[:,1].dtype == "category":
+        aux.iloc[:,1] = aux.iloc[:,1].astype('float64')
 
-    if aux[:,0].dtype == "category":
-        aux[:,0] = aux[:,0].astype('float64')
+    if aux.iloc[:,0].dtype == "category":
+        aux.iloc[:,0] = aux.iloc[:,0].astype('float64')
 
-    aux1 = aux[:,1].astype('float64')
+    aux1 = aux.iloc[:,1].astype('float64')
 
     tri = False
 
@@ -73,3 +74,6 @@ def bets_get(code, data_frame=False):
 
 
     return code
+
+
+bets_get(code = 1, data_frame=False)
