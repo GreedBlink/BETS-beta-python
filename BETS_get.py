@@ -60,13 +60,13 @@ def bets_get(code, data_frame=False):
 
     aux = aux.dropna()
 
-    if aux.iloc[:,1].dtype == "category":
-        aux.iloc[:,1] = aux.iloc[:,1].astype('float64')
-
-    if aux.iloc[:,0].dtype == "category":
-        aux.iloc[:,0] = aux.iloc[:,0].astype('float64')
-
     aux1 = aux.iloc[:,1].astype('float64')
+
+    try:
+        aux2 = aux.iloc[:,0].astype('M')
+        #TODO Create a lambda function HERE
+        error = err
+        return True
 
     tri = False
 
